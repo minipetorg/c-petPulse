@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1200" height="900" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>
+    .class-box {
+      fill: white;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .class-header {
+      fill: #d6e6ff;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .service-box {
+      fill: #ffecb3;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .page-box {
+      fill: #e8f5e9;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .widget-box {
+      fill: #fce4ec;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .arrow {
+      fill: none;
+      stroke: #333;
+      stroke-width: 2;
+      marker-end: url(#arrowhead);
+    }
+    .dashed-arrow {
+      fill: none;
+      stroke: #666;
+      stroke-width: 2;
+      stroke-dasharray: 5, 5;
+      marker-end: url(#arrowhead);
+    }
+    .dependency {
+      stroke: #666;
+      stroke-dasharray: 5, 5;
+    }
+    .composition {
+      fill: black;
+    }
+    .text {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+    .title {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+    <marker id="diamond" markerWidth="12" markerHeight="12" refX="6" refY="6" orient="auto">
+      <polygon points="6 0, 12 6, 6 12, 0 6" fill="white" stroke="#333" stroke-width="1"/>
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="40" class="title" text-anchor="middle">Pet Pulse Application - UML Class Diagram</text>
+  
+  <!-- Main Class: MyApp -->
+  <g transform="translate(500, 100)">
+    <rect width="200" height="40" class="class-header" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">MyApp</text>
+    <rect y="40" width="200" height="40" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">- build()</text>
+  </g>
+  
+  <!-- AuthCheckPage -->
+  <g transform="translate(500, 200)">
+    <rect width="200" height="40" class="class-header" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">AuthCheckPage</text>
+    <rect y="40" width="200" height="80" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">- _authService: AuthService</text>
+    <text x="10" y="85" class="text">- _isLoading: bool</text>
+    <text x="10" y="105" class="text">- _checkLoginStatus()</text>
+  </g>
+  
+  <!-- MyHomePage -->
+  <g transform="translate(500, 330)">
+    <rect width="200" height="40" class="class-header" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">MyHomePage</text>
+    <rect y="40" width="200" height="120" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">- _pageController</text>
+    <text x="10" y="85" class="text">- _timer: Timer?</text>
+    <text x="10" y="105" class="text">- _currentPage: int</text>
+    <text x="10" y="125" class="text">- _authService: AuthService</text>
+    <text x="10" y="145" class="text">- _startTimer(), _showDialog()</text>
+  </g>
+  
+  <!-- AnimatedServicesWidget -->
+  <g transform="translate(500, 500)">
+    <rect width="200" height="40" class="class-header" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">AnimatedServicesWidget</text>
+    <rect y="40" width="200" height="60" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">- services: List</text>
+    <text x="10" y="85" class="text">- animations, controller</text>
+  </g>
+  
+  <!-- Services -->
+  <!-- AuthService -->
+  <g transform="translate(100, 200)">
+    <rect width="200" height="40" class="service-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">AuthService</text>
+    <rect y="40" width="200" height="100" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">+ isUserLoggedIn()</text>
+    <text x="10" y="85" class="text">+ getUserType()</text>
+    <text x="10" y="105" class="text">+ saveUserSession()</text>
+    <text x="10" y="125" class="text">+ login(), signup()</text>
+  </g>
+  
+  <!-- NotificationService -->
+  <g transform="translate(100, 350)">
+    <rect width="200" height="40" class="service-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">NotificationService</text>
+    <rect y="40" width="200" height="60" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">+ showNotification()</text>
+    <text x="10" y="85" class="text">+ hideNotification()</text>
+  </g>
+  
+  <!-- FeatureNotificationService -->
+  <g transform="translate(100, 450)">
+    <rect width="200" height="40" class="service-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">FeatureNotificationService</text>
+    <rect y="40" width="200" height="60" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">- _notificationService</text>
+    <text x="10" y="85" class="text">+ notify(feature, message)</text>
+  </g>
+  
+  <!-- ChatService -->
+  <g transform="translate(100, 550)">
+    <rect width="200" height="40" class="service-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">ChatService</text>
+    <rect y="40" width="200" height="60" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">+ createRequiredIndexes()</text>
+    <text x="10" y="85" class="text">+ sendMessage(), getChats()</text>
+  </g>
+  
+  <!-- Views -->
+  <!-- DashboardPage -->
+  <g transform="translate(800, 200)">
+    <rect width="200" height="40" class="page-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">DashboardPage</text>
+    <rect y="40" width="200" height="40" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">+ build()</text>
+  </g>
+  
+  <!-- LoginDialog -->
+  <g transform="translate(800, 300)">
+    <rect width="200" height="40" class="page-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">LoginDialog</text>
+    <rect y="40" width="200" height="60" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">- onLoginSuccess</text>
+    <text x="10" y="85" class="text">+ performLogin()</text>
+  </g>
+  
+  <!-- SignupDialog -->
+  <g transform="translate(800, 400)">
+    <rect width="200" height="40" class="page-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">SignupDialog</text>
+    <rect y="40" width="200" height="60" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">- onSignupSuccess</text>
+    <text x="10" y="85" class="text">+ performSignup()</text>
+  </g>
+  
+  <!-- ChatListPage -->
+  <g transform="translate(800, 500)">
+    <rect width="200" height="40" class="page-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">ChatListPage</text>
+    <rect y="40" width="200" height="40" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">+ build()</text>
+  </g>
+  
+  <!-- Widgets -->
+  <!-- NotificationManager -->
+  <g transform="translate(800, 600)">
+    <rect width="200" height="40" class="widget-box" rx="5" ry="5" />
+    <text x="100" y="25" class="text" text-anchor="middle">NotificationManager</text>
+    <rect y="40" width="200" height="60" class="class-box" rx="0" ry="0" />
+    <text x="10" y="65" class="text">- child: Widget</text>
+    <text x="10" y="85" class="text">+ build()</text>
+  </g>
+  
+  <!-- Relationships -->
+  <!-- MyApp uses AuthCheckPage -->
+  <path d="M 600 140 L 600 200" class="arrow" />
+  
+  <!-- AuthCheckPage uses MyHomePage -->
+  <path d="M 600 280 L 600 330" class="arrow" />
+  
+  <!-- MyHomePage uses AnimatedServicesWidget -->
+  <path d="M 600 450 L 600 500" class="arrow" />
+  
+  <!-- AuthCheckPage uses AuthService -->
+  <path d="M 500 240 L 300 240" class="arrow" />
+  
+  <!-- MyHomePage uses AuthService -->
+  <path d="M 500 370 L 350 370 L 350 280 L 300 280" class="arrow" />
+  
+  <!-- MyHomePage uses LoginDialog and SignupDialog -->
+  <path d="M 700 370 L 750 370 L 750 320 L 800 320" class="dashed-arrow" />
+  <path d="M 700 390 L 750 390 L 750 420 L 800 420" class="dashed-arrow" />
+  
+  <!-- AuthCheckPage redirects to DashboardPage -->
+  <path d="M 700 220 L 800 220" class="dashed-arrow" />
+  
+  <!-- MyApp uses NotificationManager -->
+  <path d="M 700 120 L 900 120 L 900 600" class="dashed-arrow" />
+  
+  <!-- FeatureNotificationService uses NotificationService -->
+  <path d="M 200 450 L 200 410" class="arrow" />
+  
+  <!-- Legend -->
+  <g transform="translate(100, 700)">
+    <rect width="200" height="30" class="class-header" rx="5" ry="5" />
+    <text x="100" y="20" class="text" text-anchor="middle">Core Classes</text>
+    
+    <rect y="40" width="200" height="30" class="service-box" rx="5" ry="5" />
+    <text x="100" y="60" class="text" text-anchor="middle">Services</text>
+    
+    <rect y="80" width="200" height="30" class="page-box" rx="5" ry="5" />
+    <text x="100" y="100" class="text" text-anchor="middle">Views/Pages</text>
+    
+    <rect y="120" width="200" height="30" class="widget-box" rx="5" ry="5" />
+    <text x="100" y="140" class="text" text-anchor="middle">Widgets</text>
+  </g>
+  
+  <g transform="translate(350, 700)">
+    <line x1="0" y1="15" x2="50" y2="15" class="arrow" />
+    <text x="120" y="20" class="text">Direct Relationship</text>
+    
+    <line x1="0" y1="55" x2="50" y2="55" class="dashed-arrow" />
+    <text x="120" y="60" class="text">Dependency</text>
+  </g>
+</svg>

@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="1200" height="2200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style>
+    .title {
+      font-family: Arial, sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .subtitle {
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .actor {
+      fill: #d6e6ff;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .service-actor {
+      fill: #ffecb3;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .page-actor {
+      fill: #e8f5e9;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .lifeline {
+      stroke: #666;
+      stroke-width: 1;
+      stroke-dasharray: 5, 5;
+    }
+    .active-lifeline {
+      fill: #f0f0f0;
+      stroke: #333;
+      stroke-width: 2;
+    }
+    .message {
+      fill: none;
+      stroke: #333;
+      stroke-width: 1.5;
+      marker-end: url(#arrowhead);
+    }
+    .return-message {
+      fill: none;
+      stroke: #666;
+      stroke-width: 1.5;
+      stroke-dasharray: 5, 5;
+      marker-end: url(#arrowhead);
+    }
+    .self-message {
+      fill: none;
+      stroke: #333;
+      stroke-width: 1.5;
+      marker-end: url(#arrowhead);
+    }
+    .text {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+    }
+    .note {
+      fill: #fff9c4;
+      stroke: #333;
+      stroke-width: 1;
+    }
+    .note-text {
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-style: italic;
+    }
+    .highlight {
+      fill: rgba(255, 235, 59, 0.3);
+      stroke: #ffc107;
+      stroke-width: 1;
+      stroke-dasharray: 3,3;
+    }
+  </style>
+  
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" />
+    </marker>
+  </defs>
+  
+  <!-- Title -->
+  <text x="600" y="40" class="title" text-anchor="middle">Pet Pulse Application - Sequence Diagrams</text>
+  
+  <!-- Auth Flow Diagram -->
+  <text x="600" y="90" class="subtitle" text-anchor="middle">Authentication Flow</text>
+  
+  <!-- Auth Flow Actors -->
+  <g transform="translate(100, 120)">
+    <rect width="120" height="40" class="actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">User</text>
+    <line x1="60" y1="40" x2="60" y2="520" class="lifeline" />
+  </g>
+  
+  <g transform="translate(260, 120)">
+    <rect width="120" height="40" class="page-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">MyHomePage</text>
+    <line x1="60" y1="40" x2="60" y2="520" class="lifeline" />
+  </g>
+  
+  <g transform="translate(420, 120)">
+    <rect width="120" height="40" class="page-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">LoginDialog</text>
+    <line x1="60" y1="40" x2="60" y2="520" class="lifeline" />
+  </g>
+  
+  <g transform="translate(580, 120)">
+    <rect width="120" height="40" class="service-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">AuthService</text>
+    <line x1="60" y1="40" x2="60" y2="520" class="lifeline" />
+  </g>
+  
+  <g transform="translate(740, 120)">
+    <rect width="120" height="40" class="page-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">DashboardPage</text>
+    <line x1="60" y1="40" x2="60" y2="520" class="lifeline" />
+  </g>
+  
+  <!-- Auth Flow Interactions -->
+  <!-- User clicks login -->
+  <rect x="155" y="180" width="10" height="360" class="active-lifeline" />
+  <path d="M 165 200 L 315 200" class="message" />
+  <text x="240" y="190" class="text" text-anchor="middle">Click Login</text>
+  
+  <!-- Show Login Dialog -->
+  <rect x="315" y="200" width="10" height="60" class="active-lifeline" />
+  <path d="M 325 220 L 475 220" class="message" />
+  <text x="400" y="210" class="text" text-anchor="middle">Show Dialog</text>
+  
+  <!-- Login Form Display -->
+  <rect x="475" y="220" width="10" height="200" class="active-lifeline" />
+  <path d="M 485 260 L 165 260" class="return-message" />
+  <text x="325" y="250" class="text" text-anchor="middle">Display Login Form</text>
+  
+  <!-- User enters credentials -->
+  <path d="M 165 290 L 475 290" class="message" />
+  <text x="320" y="280" class="text" text-anchor="middle">Enter Credentials</text>
+  
+  <!-- Submit login -->
+  <path d="M 485 320 L 635 320" class="message" />
+  <text x="560" y="310" class="text" text-anchor="middle">Verify Credentials</text>
+  
+  <!-- Auth service verification -->
+  <rect x="635" y="320" width="10" height="80" class="active-lifeline" />
+  <path d="M 645 340 L 665 340 L 665 370 L 645 370" class="self-message" />
+  <text x="695" y="355" class="text" text-anchor="middle">Firebase Auth</text>
+  
+  <!-- Auth result -->
+  <path d="M 635 400 L 485 400" class="return-message" />
+  <text x="560" y="390" class="text" text-anchor="middle">Auth Result</text>
+  
+  <!-- Login success -->
+  <path d="M 485 420 L 635 420" class="message" />
+  <text x="560" y="410" class="text" text-anchor="middle">Save User Session</text>
+  
+  <!-- Navigate to Dashboard -->
+  <path d="M 485 460 L 795 460" class="message" />
+  <text x="640" y="450" class="text" text-anchor="middle">Navigate on Success</text>
+  
+  <rect x="795" y="460" width="10" height="60" class="active-lifeline" />
+  
+  <!-- Note -->
+  <rect x="830" y="480" width="140" height="40" class="note" rx="5" ry="5" />
+  <text x="900" y="505" class="note-text" text-anchor="middle">Dashboard Loaded</text>
+  
+  <!-- Notification Flow Diagram -->
+  <text x="600" y="690" class="subtitle" text-anchor="middle">Notification Flow</text>
+  
+  <!-- Notification Actors -->
+  <g transform="translate(100, 720)">
+    <rect width="120" height="40" class="page-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">DashboardPage</text>
+    <line x1="60" y1="40" x2="60" y2="360" class="lifeline" />
+  </g>
+  
+  <g transform="translate(300, 720)">
+    <rect width="120" height="40" class="service-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">FeatureNotification</text>
+    <line x1="60" y1="40" x2="60" y2="360" class="lifeline" />
+  </g>
+  
+  <g transform="translate(500, 720)">
+    <rect width="120" height="40" class="service-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">NotificationService</text>
+    <line x1="60" y1="40" x2="60" y2="360" class="lifeline" />
+  </g>
+  
+  <g transform="translate(700, 720)">
+    <rect width="120" height="40" class="actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">NotificationManager</text>
+    <line x1="60" y1="40" x2="60" y2="360" class="lifeline" />
+  </g>
+  
+  <!-- Notification Interactions -->
+  <rect x="155" y="780" width="10" height="260" class="active-lifeline" />
+  
+  <rect x="355" y="800" width="10" height="120" class="active-lifeline" />
+  <path d="M 165 800 L 355 800" class="message" />
+  <text x="260" y="790" class="text" text-anchor="middle">notify(feature, message)</text>
+  
+  <rect x="555" y="840" width="10" height="120" class="active-lifeline" />
+  <path d="M 365 840 L 555 840" class="message" />
+  <text x="460" y="830" class="text" text-anchor="middle">showNotification(message)</text>
+  
+  <rect x="755" y="880" width="10" height="120" class="active-lifeline" />
+  <path d="M 565 880 L 755 880" class="message" />
+  <text x="660" y="870" class="text" text-anchor="middle">display(notification)</text>
+  
+  <path d="M 755 940 L 565 940" class="return-message" />
+  <text x="660" y="930" class="text" text-anchor="middle">notification displayed</text>
+  
+  <path d="M 555 980 L 165 980" class="return-message" />
+  <text x="360" y="970" class="text" text-anchor="middle">notification complete</text>
+  
+  <!-- Chat Flow Diagram -->
+  <text x="600" y="1190" class="subtitle" text-anchor="middle">Chat Message Flow</text>
+  
+  <!-- Chat Actors -->
+  <g transform="translate(100, 1220)">
+    <rect width="120" height="40" class="actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">User</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <g transform="translate(300, 1220)">
+    <rect width="120" height="40" class="page-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">ChatListPage</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <g transform="translate(500, 1220)">
+    <rect width="120" height="40" class="service-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">ChatService</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <g transform="translate(700, 1220)">
+    <rect width="120" height="40" class="service-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">Firebase</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <!-- Chat Interactions -->
+  <rect x="155" y="1280" width="10" height="320" class="active-lifeline" />
+  <rect x="355" y="1300" width="10" height="280" class="active-lifeline" />
+  
+  <path d="M 165 1300 L 355 1300" class="message" />
+  <text x="260" y="1290" class="text" text-anchor="middle">Send Message</text>
+  
+  <rect x="555" y="1340" width="10" height="200" class="active-lifeline" />
+  <path d="M 365 1340 L 555 1340" class="message" />
+  <text x="460" y="1330" class="text" text-anchor="middle">sendMessage(content)</text>
+  
+  <rect x="755" y="1380" width="10" height="100" class="active-lifeline" />
+  <path d="M 565 1380 L 755 1380" class="message" />
+  <text x="660" y="1370" class="text" text-anchor="middle">Store Message Data</text>
+  
+  <path d="M 755 1440 L 565 1440" class="return-message" />
+  <text x="660" y="1430" class="text" text-anchor="middle">Storage Confirmation</text>
+  
+  <path d="M 555 1480 L 365 1480" class="return-message" />
+  <text x="460" y="1470" class="text" text-anchor="middle">Message Sent Status</text>
+  
+  <path d="M 355 1520 L 165 1520" class="return-message" />
+  <text x="260" y="1510" class="text" text-anchor="middle">Update UI</text>
+  
+  <!-- Dashboard Loading Diagram -->
+  <text x="600" y="1690" class="subtitle" text-anchor="middle">Dashboard Loading Sequence</text>
+  
+  <!-- Dashboard Loading Actors -->
+  <g transform="translate(100, 1720)">
+    <rect width="120" height="40" class="actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">User</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <g transform="translate(260, 1720)">
+    <rect width="120" height="40" class="page-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">AuthCheckPage</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <g transform="translate(420, 1720)">
+    <rect width="120" height="40" class="service-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">AuthService</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <g transform="translate(580, 1720)">
+    <rect width="120" height="40" class="page-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">DashboardPage</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <g transform="translate(740, 1720)">
+    <rect width="120" height="40" class="service-actor" rx="5" ry="5" />
+    <text x="60" y="25" class="text" text-anchor="middle">NotificationService</text>
+    <line x1="60" y1="40" x2="60" y2="400" class="lifeline" />
+  </g>
+  
+  <!-- Dashboard Loading Interactions -->
+  <rect x="155" y="1780" width="10" height="320" class="active-lifeline" />
+  
+  <rect x="315" y="1780" width="10" height="200" class="active-lifeline" />
+  <path d="M 165 1800 L 315 1800" class="message" />
+  <text x="240" y="1790" class="text" text-anchor="middle">App Launch</text>
+  
+  <rect x="475" y="1820" width="10" height="120" class="active-lifeline" />
+  <path d="M 325 1820 L 475 1820" class="message" />
+  <text x="400" y="1810" class="text" text-anchor="middle">isUserLoggedIn()</text>
+  
+  <path d="M 485 1840 L 505 1840 L 505 1870 L 485 1870" class="self-message" />
+  <text x="545" y="1855" class="text" text-anchor="middle">Check Local Storage</text>
+  
+  <path d="M 475 1900 L 325 1900" class="return-message" />
+  <text x="400" y="1890" class="text" text-anchor="middle">Return Login Status</text>
+  
+  <rect x="635" y="1940" width="10" height="140" class="active-lifeline" />
+  <path d="M 325 1940 L 635 1940" class="message" />
+  <text x="480" y="1930" class="text" text-anchor="middle">Navigate To Dashboard</text>
+  
+  <rect x="795" y="1980" width="10" height="80" class="active-lifeline" />
+  <path d="M 645 1980 L 795 1980" class="message" />
+  <text x="720" y="1970" class="text" text-anchor="middle">Load Notifications</text>
+  
+  <path d="M 795 2020 L 645 2020" class="return-message" />
+  <text x="720" y="2010" class="text" text-anchor="middle">Active Notifications</text>
+  
+  <path d="M 635 2060 L 165 2060" class="return-message" />
+  <text x="400" y="2050" class="text" text-anchor="middle">Dashboard UI Visible</text>
+  
+  <!-- Dashboard Highlight Region -->
+  <rect x="80" y="1760" width="810" height="340" class="highlight" rx="10" ry="10" />
+  
+  <!-- Highlight Regions -->
+  <rect x="80" y="160" width="810" height="400" class="highlight" rx="10" ry="10" />
+  <rect x="80" y="760" width="810" height="300" class="highlight" rx="10" ry="10" />
+  <rect x="80" y="1260" width="810" height="340" class="highlight" rx="10" ry="10" />
+  
+  <!-- Legend -->
+  <g transform="translate(900, 1220)">
+    <rect width="250" height="180" fill="white" stroke="#333" stroke-width="1" rx="5" ry="5" />
+    <text x="125" y="30" class="subtitle" text-anchor="middle" font-size="14">Legend</text>
+    
+    <rect x="20" y="50" width="80" height="20" class="actor" rx="2" ry="2" />
+    <text x="170" y="65" class="text">User / Widget</text>
+    
+    <rect x="20" y="80" width="80" height="20" class="page-actor" rx="2" ry="2" />
+    <text x="170" y="95" class="text">Page / Screen</text>
+    
+    <rect x="20" y="110" width="80" height="20" class="service-actor" rx="2" ry="2" />
+    <text x="170" y="125" class="text">Service / Provider</text>
+    
+    <line x1="20" y1="150" x2="100" y2="150" class="message" />
+    <text x="170" y="155" class="text">Synchronous Call</text>
+    
+    <line x1="20" y1="180" x2="100" y2="180" class="return-message" />
+    <text x="170" y="185" class="text">Return / Async Call</text>
+  </g>
+</svg>

@@ -1,0 +1,2 @@
+D:/projects/petPulseNew/ppnew/pet-pulse/android/app/.cxx/Debug/654d1j68/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/projects/petPulseNew/ppnew/pet-pulse/android/app/.cxx/Debug/654d1j68/armeabi-v7a/CMakeFiles/rebuild_cache.dir
